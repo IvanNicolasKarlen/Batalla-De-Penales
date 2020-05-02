@@ -1,0 +1,45 @@
+﻿@model BatallaDePenales.Models.ViewModelDirectorTecnico
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ganador</title>
+</head>
+<body>
+    <!--DT Ganador: [Nombre de usuario]
+    Puntos Totales: [Puntos batalla de los penales]
+    Arquero: [Apellido], [Nombre] ([Puntos de arquero])
+    Delantero1: [Apellido], [Nombre] ([Puntos de delantero])
+    Delantero2: [Apellido], [Nombre] ([Puntos de delantero])
+        -->
+    <div>
+        <h1> EL GANADOR ES @Model.directorTecnico.nombreUsuario </h1>
+        <h3>Puntos de Batalla: @Model.puntos</h3>
+        @foreach (var item in Model.arqueros)
+        {
+            <h3>Arquero: @item.apellido, @item.nombre @item.puntos </h3>
+
+        }
+
+        @{ 
+            int contador = 1;
+        }
+        @foreach (var item in Model.delantero)
+        {
+
+            <h3>Delantero @contador: @item.apellido, @item.nombre  @item.puntos </h3>
+
+            contador++;
+
+
+        }
+    </div>
+
+
+</body>
+</html>
